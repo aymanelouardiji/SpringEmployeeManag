@@ -4,7 +4,7 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
-public class PartTime extends Employee  {
+public class PartTime extends Employee {
 
 
     private double hourlyRate;

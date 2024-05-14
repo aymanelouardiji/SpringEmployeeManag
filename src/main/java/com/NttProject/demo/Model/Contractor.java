@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 
 
 @Entity
-public class Contractor extends Employee implements Payable{
+public class Contractor extends Employee{
     private double hourlyRate;
     private double contractDuration; // in hours
     private double salary;

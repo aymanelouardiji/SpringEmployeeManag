@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Employee{
+public abstract class Employee implements Payable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
