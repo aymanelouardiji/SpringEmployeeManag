@@ -3,7 +3,9 @@ package com.NttProject.demo.Service;
 import com.NttProject.demo.Model.FullTime;
 import com.NttProject.demo.Repository.FullTimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,6 +41,23 @@ public class FullTimeService {
                 .filter(emplf -> !emplf.isFlag())
                 .map(emplF -> (FullTime) emplF)
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * Updates an existing full-time employee.
+     *
+     * @param id the ID of the full-time employee to update.
+     * @param updatedEmployee the updated full-time employee.
+     * @return the updated full-time employee.
+     * @throws ResponseStatusException if the full-time employee is not found.
+     */
+    public FullTime updateFullTimeEmployee(Long id, FullTime updatedEmployee) {
+        FullTime existingEmployee = fullTimeRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "FullTime Employee not found for this id : " + id));
+        existingEmployee.setName(updatedEmployee.getName());
+        existingEmployee.setRole(updatedEmployee.getRole());
+        existingEmployee.setSalaryPerYear(updatedEmployee.getSalaryPerYear());
+        return fullTimeRepository.save(existingEmployee);
     }
 
 }
