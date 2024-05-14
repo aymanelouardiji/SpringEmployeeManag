@@ -13,6 +13,15 @@ public abstract class Employee{
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    private boolean flag;
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
 
     public Employee() {
     }

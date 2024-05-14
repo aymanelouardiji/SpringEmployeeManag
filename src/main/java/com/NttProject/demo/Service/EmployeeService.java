@@ -47,12 +47,14 @@ public class EmployeeService {
     public void deleteEmployee(Long id) {
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found for this id : " + id));
-        employeeRepository.delete(employee);
+        employee.setFlag(true);
+        employeeRepository.save(employee);
     }
 
     public List<FullTime> getAllFullTimeEmployees() {
         return employeeRepository.findAll().stream()
                 .filter(emplF -> emplF instanceof FullTime)
+                .filter(emplf -> !emplf.isFlag())
                 .map(emplF -> (FullTime) emplF)
                 .collect(Collectors.toList());
     }
@@ -60,6 +62,7 @@ public class EmployeeService {
     public List<PartTime> getAllPartTimeEmployees() {
         return employeeRepository.findAll().stream()
                 .filter(emplP -> emplP instanceof PartTime)
+                .filter(emplP -> !emplP.isFlag())
                 .map(emplP -> (PartTime) emplP)
                 .collect(Collectors.toList());
     }
@@ -67,7 +70,35 @@ public class EmployeeService {
     public List<Contractor> getAllContractors() {
         return employeeRepository.findAll().stream()
                 .filter(emplC -> emplC instanceof Contractor)
+                .filter(emplC -> !emplC.isFlag())
                 .map(emplC -> (Contractor) emplC)
                 .collect(Collectors.toList());
+    }
+    public FullTime updateFullTimeEmployee(Long id, FullTime updatedEmployee) {
+        FullTime existingEmployee = (FullTime) employeeRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "FullTime Employee not found for this id : " + id));
+        existingEmployee.setName(updatedEmployee.getName());
+        existingEmployee.setRole(updatedEmployee.getRole());
+        existingEmployee.setSalaryPerYear(updatedEmployee.getSalaryPerYear());
+        return employeeRepository.save(existingEmployee);
+    }
+
+    public PartTime updatePartTimeEmployee(Long id, PartTime updatedEmployee) {
+        PartTime existingEmployee = (PartTime) employeeRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "PartTime Employee not found for this id : " + id));
+        existingEmployee.setName(updatedEmployee.getName());
+        existingEmployee.setRole(updatedEmployee.getRole());
+        existingEmployee.setHourlyRate(updatedEmployee.getHourlyRate());
+        return employeeRepository.save(existingEmployee);
+    }
+
+    public Contractor updateContractor(Long id, Contractor updatedEmployee) {
+        Contractor existingEmployee = (Contractor) employeeRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Contractor not found for this id : " + id));
+        existingEmployee.setName(updatedEmployee.getName());
+        existingEmployee.setRole(updatedEmployee.getRole());
+        existingEmployee.setHourlyRate(updatedEmployee.getHourlyRate());
+        existingEmployee.setContractDuration((int) updatedEmployee.getContractDuration());
+        return employeeRepository.save(existingEmployee);
     }
 }

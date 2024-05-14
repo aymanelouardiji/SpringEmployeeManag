@@ -73,5 +73,22 @@ public class EmployeeController {
         List<Contractor> employees = employeeService.getAllContractors();
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
+    @PutMapping("/part-time/{id}")
+    public ResponseEntity<PartTime> updatePartTimeEmployee(@PathVariable Long id, @RequestBody PartTime employee) {
+        PartTime updatedEmployee = employeeService.updatePartTimeEmployee(id, employee);
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
+    }
+
+    @PutMapping("/full-time/{id}")
+    public ResponseEntity<FullTime> updateFullTimeEmployee(@PathVariable Long id, @RequestBody FullTime employee) {
+        FullTime updatedEmployee = employeeService.updateFullTimeEmployee(id, employee);
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
+    }
+
+    @PutMapping("/contractor/{id}")
+    public ResponseEntity<Contractor> updateContractor(@PathVariable Long id, @RequestBody Contractor employee) {
+        Contractor updatedEmployee = employeeService.updateContractor(id, employee);
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
+    }
 }
 
