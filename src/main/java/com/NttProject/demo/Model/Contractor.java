@@ -1,7 +1,5 @@
 package com.NttProject.demo.Model;
 
-
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 
