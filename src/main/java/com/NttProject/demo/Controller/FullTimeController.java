@@ -28,6 +28,7 @@ public class FullTimeController {
      */
     @PostMapping
     public ResponseEntity<FullTime> createFullTimeEmployee(@RequestBody FullTime employee) {
+        employee.setSalaryPerYear(employee.calculateSalary());
         FullTime createdEmployee = fullTimeService.saveFullTimeEmployee(employee);
         return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
     }

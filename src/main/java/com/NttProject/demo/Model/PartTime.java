@@ -11,6 +11,8 @@ public class PartTime extends Employee {
     public static final int workingHoursPerDay = 8;
     private double salary;
 
+
+
     public PartTime() {
     }
 
@@ -27,6 +29,13 @@ public class PartTime extends Employee {
 
     public void setHourlyRate(double hourlyRate) {
         this.hourlyRate = hourlyRate;
+    }
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     @Override

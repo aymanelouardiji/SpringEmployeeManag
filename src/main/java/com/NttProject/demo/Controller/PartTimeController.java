@@ -28,6 +28,7 @@ public class PartTimeController {
      */
     @PostMapping
     public ResponseEntity<PartTime> createPartTimeEmployee(@RequestBody PartTime employee) {
+        employee.setSalary(employee.calculateSalary());
         PartTime createdEmployee = partTimeService.savePartTimeEmployee(employee);
         return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
     }
