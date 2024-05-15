@@ -14,8 +14,11 @@ import java.util.List;
 @RequestMapping("/part-time")
 public class PartTimeController {
 
-    @Autowired
-    private PartTimeService partTimeService;
+    private final PartTimeService partTimeService;
+
+    public PartTimeController(PartTimeService partTimeService) {
+        this.partTimeService = partTimeService;
+    }
 
     /**
      * Creates a new part-time employee.

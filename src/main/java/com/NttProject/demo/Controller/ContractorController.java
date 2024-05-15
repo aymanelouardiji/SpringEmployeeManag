@@ -14,8 +14,11 @@ import java.util.List;
 @RequestMapping("/contractor")
 public class ContractorController {
 
-    @Autowired
-    private ContractorService contractorService;
+    private final ContractorService contractorService;
+
+    public ContractorController(ContractorService contractorService) {
+        this.contractorService = contractorService;
+    }
 
     /**
      * Creates a new contractor.

@@ -14,8 +14,11 @@ import java.util.List;
 @RequestMapping("/full-time")
 public class FullTimeController {
 
-    @Autowired
-    private FullTimeService fullTimeService;
+    private final FullTimeService fullTimeService;
+
+    public FullTimeController(FullTimeService fullTimeService) {
+        this.fullTimeService = fullTimeService;
+    }
 
     /**
      * Creates a new full-time employee.

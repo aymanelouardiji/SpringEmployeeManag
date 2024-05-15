@@ -16,8 +16,11 @@ import java.util.List;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     /**
      * Retrieves all employees.
