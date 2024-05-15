@@ -26,8 +26,9 @@ public class PartTimeService {
      * @param employee the part-time employee to save.
      * @return the saved part-time employee.
      */
-    public PartTime savePartTimeEmployee(PartTime employee) {
-        return partTimeRepository.save(employee);
+    public void savePartTimeEmployee(PartTime employee) {
+        employee.setSalary(employee.calculateSalary());
+        partTimeRepository.save(employee);
     }
 
     /**
@@ -36,11 +37,7 @@ public class PartTimeService {
      * @return a list of all part-time employees.
      */
     public List<PartTime> getAllPartTimeEmployees() {
-        return partTimeRepository.findAll().stream()
-                .filter(emplP -> emplP instanceof PartTime)
-                .filter(emplP -> !emplP.isFlag())
-                .map(emplP -> (PartTime) emplP)
-                .collect(Collectors.toList());
+        return partTimeRepository.findAllByFlagFalse();
     }
 
     /**

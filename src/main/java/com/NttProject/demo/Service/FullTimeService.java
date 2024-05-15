@@ -24,10 +24,10 @@ public class FullTimeService {
      * Saves a full-time employee.
      *
      * @param employee the full-time employee to save.
-     * @return the saved full-time employee.
      */
     public FullTime saveFullTimeEmployee(FullTime employee) {
-        return fullTimeRepository.save(employee);
+        employee.setSalaryPerYear(employee.calculateSalary());
+         return fullTimeRepository.save(employee);
     }
 
     /**
@@ -36,11 +36,7 @@ public class FullTimeService {
      * @return a list of all full-time employees.
      */
     public List<FullTime> getAllFullTimeEmployees() {
-        return fullTimeRepository.findAll().stream()
-                .filter(emplF -> emplF instanceof FullTime)
-                .filter(emplf -> !emplf.isFlag())
-                .map(emplF -> (FullTime) emplF)
-                .collect(Collectors.toList());
+        return fullTimeRepository.findAllByFlagFalse();
     }
 
     /**

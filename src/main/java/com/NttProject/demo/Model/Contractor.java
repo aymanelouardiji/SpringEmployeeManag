@@ -29,7 +29,6 @@ public class Contractor extends Employee {
         this.hourlyRate = hourlyRate;
         this.contractDuration = contractDuration;
         this.salary = calculateSalary();
-
     }
 
     public double getHourlyRate() {

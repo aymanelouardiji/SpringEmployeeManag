@@ -5,11 +5,8 @@ import jakarta.persistence.Entity;
 @Entity
 public class FullTime extends Employee {
     private double salaryPerYear;
-
-
     public FullTime() {
     }
-
     public FullTime(String name, Role role, double salaryPerYear) {
         super(name, role);
         this.salaryPerYear = salaryPerYear;

@@ -5,13 +5,10 @@ import jakarta.persistence.Entity;
 @Entity
 public class PartTime extends Employee {
 
-
     private double hourlyRate;
     public static final int workingDays = 120;
     public static final int workingHoursPerDay = 8;
     private double salary;
-
-
 
     public PartTime() {
     }
@@ -22,7 +19,6 @@ public class PartTime extends Employee {
         this.salary = calculateSalary();
     }
 
-
     public double getHourlyRate() {
         return hourlyRate;
     }
@@ -30,6 +26,7 @@ public class PartTime extends Employee {
     public void setHourlyRate(double hourlyRate) {
         this.hourlyRate = hourlyRate;
     }
+
     public double getSalary() {
         return salary;
     }

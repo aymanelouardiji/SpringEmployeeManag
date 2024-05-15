@@ -24,10 +24,10 @@ public class ContractorService {
      * Saves a contractor.
      *
      * @param employee the contractor to save.
-     * @return the saved contractor.
      */
-    public Contractor saveContractor(Contractor employee) {
-        return contractorRepository.save(employee);
+    public void saveContractor(Contractor employee) {
+        employee.setSalary(employee.calculateSalary());
+        contractorRepository.save(employee);
     }
 
     /**
@@ -36,11 +36,7 @@ public class ContractorService {
      * @return a list of all contractors.
      */
     public List<Contractor> getAllContractors() {
-        return contractorRepository.findAll().stream()
-                .filter(emplC -> emplC instanceof Contractor)
-                .filter(emplC -> !emplC.isFlag())
-                .map(emplC -> (Contractor) emplC)
-                .collect(Collectors.toList());
+        return contractorRepository.findAllByFlagFalse();
     }
 
     /**

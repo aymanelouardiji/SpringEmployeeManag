@@ -28,9 +28,8 @@ public class ContractorController {
      */
     @PostMapping
     public ResponseEntity<Contractor> createContractor(@RequestBody Contractor employee) {
-        employee.setSalary(employee.calculateSalary());
-        Contractor createdEmployee = contractorService.saveContractor(employee);
-        return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
+        contractorService.saveContractor(employee);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     /**
