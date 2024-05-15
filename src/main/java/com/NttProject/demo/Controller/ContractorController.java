@@ -43,7 +43,7 @@ public class ContractorController {
     /**
      * Updates an existing contractor.
      *
-     * @param id the ID of the contractor to update.
+     * @param id       the ID of the contractor to update.
      * @param employee the updated contractor.
      * @return the updated contractor with an HTTP status of OK.
      */

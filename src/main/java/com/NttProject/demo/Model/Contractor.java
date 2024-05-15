@@ -4,14 +4,14 @@ import jakarta.persistence.Entity;
 
 
 @Entity
-public class Contractor extends Employee{
+public class Contractor extends Employee {
     private double hourlyRate;
     private double contractDuration; // in hours
     private double salary;
 
 
-
-    public Contractor() {}
+    public Contractor() {
+    }
 
     public Contractor(String name, Role role, double hourlyRate, double contractDuration) {
         super(name, role);
@@ -36,8 +36,9 @@ public class Contractor extends Employee{
     public void setContractDuration(int contractDuration) {
         this.contractDuration = contractDuration;
     }
+
     @Override
     public double calculateSalary() {
-        return salary=hourlyRate * contractDuration;
+        return salary = hourlyRate * contractDuration;
     }
 }

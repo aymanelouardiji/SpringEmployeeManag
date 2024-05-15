@@ -46,7 +46,7 @@ public class PartTimeService {
     /**
      * Updates an existing part-time employee.
      *
-     * @param id the ID of the part-time employee to update.
+     * @param id              the ID of the part-time employee to update.
      * @param updatedEmployee the updated part-time employee.
      * @return the updated part-time employee.
      * @throws ResponseStatusException if the part-time employee is not found.

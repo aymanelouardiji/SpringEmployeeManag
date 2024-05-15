@@ -28,6 +28,7 @@ public class PartTimeController {
         PartTime createdEmployee = partTimeService.savePartTimeEmployee(employee);
         return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
     }
+
     /**
      * Retrieves all part-time employees.
      *
@@ -42,7 +43,7 @@ public class PartTimeController {
     /**
      * Updates an existing part-time employee.
      *
-     * @param id the ID of the part-time employee to update.
+     * @param id       the ID of the part-time employee to update.
      * @param employee the updated part-time employee.
      * @return the updated part-time employee with an HTTP status of OK.
      */

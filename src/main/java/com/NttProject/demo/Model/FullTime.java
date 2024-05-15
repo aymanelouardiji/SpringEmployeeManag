@@ -1,6 +1,5 @@
 package com.NttProject.demo.Model;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
@@ -8,7 +7,8 @@ public class FullTime extends Employee {
     private double salaryPerYear;
 
 
-    public FullTime() {}
+    public FullTime() {
+    }
 
     public FullTime(String name, Role role, double salaryPerYear) {
         super(name, role);
@@ -23,8 +23,9 @@ public class FullTime extends Employee {
     public void setSalaryPerYear(double salaryPerYear) {
         this.salaryPerYear = salaryPerYear;
     }
+
     @Override
-    public double calculateSalary(){
+    public double calculateSalary() {
         return salaryPerYear;
     }
 }

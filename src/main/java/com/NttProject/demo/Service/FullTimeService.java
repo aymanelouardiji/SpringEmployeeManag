@@ -46,7 +46,7 @@ public class FullTimeService {
     /**
      * Updates an existing full-time employee.
      *
-     * @param id the ID of the full-time employee to update.
+     * @param id              the ID of the full-time employee to update.
      * @param updatedEmployee the updated full-time employee.
      * @return the updated full-time employee.
      * @throws ResponseStatusException if the full-time employee is not found.

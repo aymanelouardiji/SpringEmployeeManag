@@ -43,7 +43,7 @@ public class FullTimeController {
     /**
      * Updates an existing full-time employee.
      *
-     * @param id the ID of the full-time employee to update.
+     * @param id       the ID of the full-time employee to update.
      * @param employee the updated full-time employee.
      * @return the updated full-time employee with an HTTP status of OK.
      */

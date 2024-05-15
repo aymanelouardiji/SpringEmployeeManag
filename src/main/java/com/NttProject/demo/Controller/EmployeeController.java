@@ -1,9 +1,6 @@
 package com.NttProject.demo.Controller;
 
-import com.NttProject.demo.Model.Contractor;
 import com.NttProject.demo.Model.Employee;
-import com.NttProject.demo.Model.FullTime;
-import com.NttProject.demo.Model.PartTime;
 import com.NttProject.demo.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

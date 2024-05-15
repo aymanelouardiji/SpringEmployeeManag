@@ -46,7 +46,7 @@ public class ContractorService {
     /**
      * Updates an existing contractor.
      *
-     * @param id the ID of the contractor to update.
+     * @param id              the ID of the contractor to update.
      * @param updatedEmployee the updated contractor.
      * @return the updated contractor.
      * @throws ResponseStatusException if the contractor is not found.
